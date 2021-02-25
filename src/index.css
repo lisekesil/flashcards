@@ -1,5 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Ubuntu:wght@300;400;700&display=swap');
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+body {
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.logo {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 50px;
+    font-family: 'Fredoka One', cursive;
+    color: #f5be41;
+}
+
+.hide {
+    display: none;
 }
