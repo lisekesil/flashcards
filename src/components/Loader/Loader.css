@@ -11,7 +11,7 @@
     margin: 8px;
     border-radius: 50%;
     border: 10px solid #fff;
-    border-color: #ffc728 transparent #ffc728 transparent;
+    border-color: #f5be41 transparent #f5be41 transparent;
     animation: loader 1.2s linear infinite;
 }
 

@@ -7,7 +7,6 @@ function App() {
     return (
         <Router>
             <div className="App">
-                <h1 className="logo">Flashcards</h1>
                 <Switch>
                     <Route exact path="/">
                         <Home />

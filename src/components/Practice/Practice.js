@@ -80,10 +80,10 @@ const Practice = () => {
             {deck && completed < deckLength && (
                 <div className="buttons">
                     <button className="btn btn--skip" onClick={handleSkipClick}>
-                        skip
+                        &#128078;
                     </button>
                     <button className="btn btn--good" onClick={handleGoodClick}>
-                        good
+                        &#128077;
                     </button>
                 </div>
             )}
