@@ -1,7 +1,7 @@
-import Flashcards from './components/Flashcards';
+import Practice from './components/Practice/Practice';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import Home from './components/Home';
-import Navbar from './components/Navbar';
+import Home from './components/Home/Home';
+import Navbar from './components/Navbar/Navbar';
 
 function App() {
     return (
@@ -12,8 +12,8 @@ function App() {
                     <Route exact path="/">
                         <Home />
                     </Route>
-                    <Route path="/flashcards/:deckName">
-                        <Flashcards />
+                    <Route path="/practice/:deckName">
+                        <Practice />
                     </Route>
                 </Switch>
                 <Navbar />

@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import firebase from '../utils/firebase';
+import Loader from '../Loader/Loader';
+import firebase from '../../utils/firebase';
 import './Home.css';
-import Loader from './Loader';
 
 const Home = () => {
     const [decks, setDecks] = useState();
@@ -27,7 +27,7 @@ const Home = () => {
                     {decks.map((deck) => (
                         <section className="select" key={deck + Math.random()}>
                             <h2 className="select__name">{deck}</h2>
-                            <Link to={`/flashcards/${deck}`}>
+                            <Link to={`/practice/${deck}`}>
                                 <button className="select__btn">start</button>
                             </Link>
                         </section>

@@ -2,7 +2,7 @@ import './Flashcard.css';
 
 const Flashcard = ({ card, handleFlipCard }) => {
     return (
-        <div>
+        <section>
             {card && (
                 <div className="card-container">
                     <div className="card">
@@ -18,7 +18,7 @@ const Flashcard = ({ card, handleFlipCard }) => {
                     </button>
                 </div>
             )}
-        </div>
+        </section>
     );
 };
 

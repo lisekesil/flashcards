@@ -14,6 +14,7 @@
 
 .select__btn {
     font-family: inherit;
+    font-weight: 300;
     color: #000;
     background-color: #f5be41;
     border: none;

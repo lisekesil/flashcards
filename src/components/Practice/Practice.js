@@ -1,13 +1,12 @@
 import { useEffect, useState } from 'react';
-import { useParams, useHistory } from 'react-router-dom';
-import Flashcard from './Flashcard';
-import './Flashcards.css';
-import firebase from '../utils/firebase';
-import Loader from './Loader';
+import { useParams } from 'react-router-dom';
+import Flashcard from '../Flashcard/Flashcard';
+import Loader from '../Loader/Loader';
+import firebase from '../../utils/firebase';
+import './Practice.css';
 
-const Flashcards = () => {
+const Practice = () => {
     const { deckName } = useParams();
-    const history = useHistory();
 
     const [currentCard, setCurrentCard] = useState(0);
     const [completed, setCompleted] = useState(0);
@@ -18,10 +17,10 @@ const Flashcards = () => {
         const decksRef = firebase.database().ref(`decks/` + deckName);
         decksRef.on('value', (snapshot) => {
             const deckArr = [];
-            const deckS = snapshot.val();
+            const deckSnap = snapshot.val();
 
-            for (let id in deckS) {
-                deckArr.push(deckS[id]);
+            for (let id in deckSnap) {
+                deckArr.push(deckSnap[id]);
             }
             setDeck(deckArr);
             setDeckLength(deckArr.length);
@@ -64,15 +63,21 @@ const Flashcards = () => {
                     completed {completed}/{deckLength}
                 </p>
             )}
+
             {deck ? (
-                <Flashcard card={deck[currentCard]} handleFlipCard={handleFlipCard} />
+                <Flashcard
+                    card={deck[currentCard]}
+                    handleFlipCard={handleFlipCard}
+                    handleSkipClick={handleSkipClick}
+                    handleGoodClick={handleGoodClick}
+                />
             ) : (
                 <Loader />
             )}
 
-            {completed === deckLength ? (
-                <div>CONGRATULATION</div>
-            ) : (
+            {completed === deckLength && <div>CONGRATULATION</div>}
+
+            {deck && completed < deckLength && (
                 <div className="buttons">
                     <button className="btn btn--skip" onClick={handleSkipClick}>
                         skip
@@ -86,4 +91,4 @@ const Flashcards = () => {
     );
 };
 
-export default Flashcards;
+export default Practice;
