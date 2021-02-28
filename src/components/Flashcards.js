@@ -1,40 +1,32 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useParams, useHistory } from 'react-router-dom';
 import Flashcard from './Flashcard';
 import './Flashcards.css';
-
-const flashcards = [
-    {
-        id: 1,
-        question: 'camiseta',
-        answer: 'koszulka',
-    },
-    {
-        id: 2,
-        question: 'lavar',
-        answer: 'myć',
-    },
-    {
-        id: 3,
-        question: 'limpiar',
-        answer: 'sprzątać',
-    },
-    {
-        id: 4,
-        question: 'perrito',
-        answer: 'piesek',
-    },
-    {
-        id: 5,
-        question: 'el gato',
-        answer: 'kot',
-    },
-];
+import firebase from '../utils/firebase';
+import Loader from './Loader';
 
 const Flashcards = () => {
+    const { deckName } = useParams();
+    const history = useHistory();
+
     const [currentCard, setCurrentCard] = useState(0);
     const [completed, setCompleted] = useState(0);
-    const [deck, setDeck] = useState(flashcards);
-    const [deckLength, setDeckLength] = useState(deck.length);
+    const [deck, setDeck] = useState(null);
+    const [deckLength, setDeckLength] = useState(null);
+
+    useEffect(() => {
+        const decksRef = firebase.database().ref(`decks/` + deckName);
+        decksRef.on('value', (snapshot) => {
+            const deckArr = [];
+            const deckS = snapshot.val();
+
+            for (let id in deckS) {
+                deckArr.push(deckS[id]);
+            }
+            setDeck(deckArr);
+            setDeckLength(deckArr.length);
+        });
+    }, []);
 
     const handleFlipCard = () => {
         document.querySelector('.answer').classList.remove('hide');
@@ -67,15 +59,19 @@ const Flashcards = () => {
 
     return (
         <div className="content">
-            <p className="completed">
-                completed {completed}/{deckLength}
-            </p>
-            {deck[currentCard] && (
+            {deckLength && (
+                <p className="completed">
+                    completed {completed}/{deckLength}
+                </p>
+            )}
+            {deck ? (
                 <Flashcard card={deck[currentCard]} handleFlipCard={handleFlipCard} />
+            ) : (
+                <Loader />
             )}
 
             {completed === deckLength ? (
-                <div>GRATULACJE</div>
+                <div>CONGRATULATION</div>
             ) : (
                 <div className="buttons">
                     <button className="btn btn--skip" onClick={handleSkipClick}>

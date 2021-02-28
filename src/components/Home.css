@@ -1,0 +1,27 @@
+.select {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    border-bottom: 1px solid #ffdf94;
+    padding: 15px;
+}
+
+.select__name {
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.select__btn {
+    font-family: inherit;
+    color: #000;
+    background-color: #f5be41;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 13px;
+    cursor: pointer;
+}
+
+.decks__container {
+    width: 100%;
+}

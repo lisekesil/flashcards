@@ -1,13 +1,24 @@
 import Flashcards from './components/Flashcards';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import Home from './components/Home';
 import Navbar from './components/Navbar';
 
 function App() {
     return (
-        <div className="App">
-            <h1 className="logo">Flashcards</h1>
-            <Flashcards />
-            <Navbar />
-        </div>
+        <Router>
+            <div className="App">
+                <h1 className="logo">Flashcards</h1>
+                <Switch>
+                    <Route exact path="/">
+                        <Home />
+                    </Route>
+                    <Route path="/flashcards/:deckName">
+                        <Flashcards />
+                    </Route>
+                </Switch>
+                <Navbar />
+            </div>
+        </Router>
     );
 }
 
