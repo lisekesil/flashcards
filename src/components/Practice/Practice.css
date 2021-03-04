@@ -43,3 +43,8 @@
 .btn--good:hover {
     background-color: rgb(37, 128, 57, 0.8);
 }
+
+.congratulations {
+    color: #258039;
+    font-size: 25px;
+}

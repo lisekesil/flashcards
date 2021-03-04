@@ -24,7 +24,6 @@ const AddCard = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         const selectedDeck = document.getElementById('select-deck');
-        console.log(selectedDeck.value);
 
         if (question && answer) {
             const deckRef = firebase.database().ref('decks/' + selectedDeck.value);
@@ -36,7 +35,14 @@ const AddCard = () => {
             deckRef.push(card);
 
             deckRef.off();
+
+            clearForm();
         }
+    };
+
+    const clearForm = () => {
+        setQuestion('');
+        setAnswer('');
     };
 
     return (

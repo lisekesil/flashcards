@@ -10,6 +10,11 @@ body {
     font-family: 'Ubuntu', sans-serif;
 }
 
+.active {
+    background-color: rgba(0, 0, 0, 0.15);
+    font-weight: 700;
+}
+
 .hide {
     display: none;
 }
@@ -31,7 +36,9 @@ body {
 .form {
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
+    align-items: center;
+
+    width: 100%;
 }
 
 .form__input {

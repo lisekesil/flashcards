@@ -1,16 +1,20 @@
 import Practice from './components/Practice/Practice';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, HashRouter } from 'react-router-dom';
 import Home from './components/Home/Home';
 import Navbar from './components/Navbar/Navbar';
 import CreateDeck from './components/CreateDeck/CreateDeck';
 import AddCard from './components/AddCard/AddCard';
+import NotFound from './components/NotFound/NotFound';
 
 function App() {
     return (
-        <Router>
+        <HashRouter>
             <div className="App">
                 <Switch>
                     <Route exact path="/">
+                        <Home />
+                    </Route>
+                    <Route exact path="/flashcards">
                         <Home />
                     </Route>
                     <Route path="/practice/:deckName">
@@ -22,10 +26,13 @@ function App() {
                     <Route path="/add">
                         <AddCard />
                     </Route>
+                    <Route exact path="*">
+                        <NotFound />
+                    </Route>
                 </Switch>
                 <Navbar />
             </div>
-        </Router>
+        </HashRouter>
     );
 }
 

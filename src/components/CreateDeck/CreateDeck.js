@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 import firebase from '../../utils/firebase';
 import './CreateDeck.css';
 
@@ -6,6 +7,7 @@ const CreateDeck = () => {
     const [deckName, setDeckName] = useState('');
     const [question, setQuestion] = useState('');
     const [answer, setAnswer] = useState('');
+    const history = useHistory();
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -19,6 +21,15 @@ const CreateDeck = () => {
 
             deckRef.push(card);
         }
+
+        clearForm();
+        history.push('/');
+    };
+
+    const clearForm = () => {
+        setDeckName('');
+        setQuestion('');
+        setAnswer('');
     };
 
     return (

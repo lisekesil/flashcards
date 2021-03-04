@@ -58,6 +58,7 @@ const Practice = () => {
 
     return (
         <div className="content">
+            {completed === deckLength && <h3 className="congratulations">CONGRATULATIONS</h3>}
             {deckLength && (
                 <p className="completed">
                     completed {completed}/{deckLength}
@@ -74,8 +75,6 @@ const Practice = () => {
             ) : (
                 <Loader />
             )}
-
-            {completed === deckLength && <div>CONGRATULATION</div>}
 
             {deck && completed < deckLength && (
                 <div className="buttons">
