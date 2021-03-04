@@ -20,6 +20,20 @@
     align-items: center;
 }
 
+.navbar a {
+    margin: 5px;
+    text-decoration: none;
+}
+
+.navbar a:visited {
+    text-decoration: none;
+    color: #000;
+}
+
+.navbar a:hover {
+    font-weight: 700;
+}
+
 @media (min-width: 1000px) {
     .wrapper-nav {
         width: 80%;

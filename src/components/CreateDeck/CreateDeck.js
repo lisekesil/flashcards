@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import firebase from '../../utils/firebase';
+import './CreateDeck.css';
 
 const CreateDeck = () => {
     const [deckName, setDeckName] = useState('');
@@ -22,9 +23,10 @@ const CreateDeck = () => {
 
     return (
         <section className="content">
-            <h2>Create deck</h2>
-            <form onSubmit={handleSubmit}>
+            <h2 className="create__header">Create deck</h2>
+            <form className="form" onSubmit={handleSubmit}>
                 <input
+                    className="form__input form__input--name"
                     type="text"
                     placeholder="deck name..."
                     value={deckName}
@@ -32,18 +34,20 @@ const CreateDeck = () => {
                 />
 
                 <input
+                    className="form__input"
                     type="text"
                     placeholder="question..."
                     value={question}
                     onChange={(e) => setQuestion(e.target.value)}
                 />
                 <input
+                    className="form__input"
                     type="text"
                     placeholder="answer..."
                     value={answer}
                     onChange={(e) => setAnswer(e.target.value)}
                 />
-                <button>Create</button>
+                <button className="form__btn">Create</button>
             </form>
         </section>
     );

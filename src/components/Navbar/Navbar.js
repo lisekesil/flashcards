@@ -6,9 +6,9 @@ const Navbar = () => {
         <div className="wrapper-nav">
             <h1 className="logo">Flashcards</h1>
             <nav className="navbar">
-                <Link to="/">home</Link>
-                <Link to="/create">create</Link>
-                <Link to="/add">add</Link>
+                <Link to="/">HOME</Link>
+                <Link to="/create">CREATE</Link>
+                <Link to="/add">ADD</Link>
             </nav>
         </div>
     );

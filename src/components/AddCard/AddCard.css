@@ -1,0 +1,18 @@
+.add__header {
+    margin-bottom: 20px;
+    font-size: 30px;
+}
+
+.form__deck-select {
+    border-radius: 10px;
+    border-color: #f5be41;
+    padding: 5px;
+    outline: none;
+}
+.form__selection {
+    font-weight: 700;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
