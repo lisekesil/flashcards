@@ -7,6 +7,8 @@ const Navbar = () => {
             <h1 className="logo">Flashcards</h1>
             <nav className="navbar">
                 <Link to="/">home</Link>
+                <Link to="/create">create</Link>
+                <Link to="/add">add</Link>
             </nav>
         </div>
     );
