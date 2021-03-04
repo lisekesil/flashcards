@@ -15,7 +15,7 @@ const Practice = () => {
 
     useEffect(() => {
         const decksRef = firebase.database().ref(`decks/` + deckName);
-        decksRef.on('value', (snapshot) => {
+        decksRef.once('value', (snapshot) => {
             const deckArr = [];
             const deckSnap = snapshot.val();
 

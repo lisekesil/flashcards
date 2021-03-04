@@ -8,7 +8,7 @@ const AddCard = () => {
 
     useEffect(() => {
         const decksRef = firebase.database().ref('decks');
-        decksRef.on('value', (snapshot) => {
+        decksRef.once('value', (snapshot) => {
             const deckArr = [];
             const decksSnap = snapshot.val();
 
@@ -32,6 +32,8 @@ const AddCard = () => {
             };
 
             deckRef.push(card);
+
+            deckRef.off();
         }
     };
 
