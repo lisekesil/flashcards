@@ -37,7 +37,7 @@ const AddCard = () => {
             deckRef.off();
 
             clearForm();
-        }
+        } else alert('Complete the form!');
     };
 
     const clearForm = () => {
@@ -51,7 +51,7 @@ const AddCard = () => {
             {decks ? (
                 <form className="form" onSubmit={handleSubmit}>
                     <div className="form__selection">
-                        <label for="select-deck">Deck:</label>
+                        <label htmlFor="select-deck">Deck:</label>
                         {decks && (
                             <select className="form__deck-select" id="select-deck">
                                 {decks.map((deck) => (

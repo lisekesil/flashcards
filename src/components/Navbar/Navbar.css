@@ -16,7 +16,7 @@
     height: 60px;
     border-radius: 25px;
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
 }
 
@@ -36,7 +36,7 @@
 }
 
 .navbar a:hover {
-    font-weight: 700;
+    background-color: rgba(0, 0, 0, 0.15);
 }
 
 @media (min-width: 1000px) {

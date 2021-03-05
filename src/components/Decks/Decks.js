@@ -2,9 +2,9 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Loader from '../Loader/Loader';
 import firebase from '../../utils/firebase';
-import './Home.css';
+import './Decks.css';
 
-const Home = () => {
+const Decks = () => {
     const [decks, setDecks] = useState();
 
     useEffect(() => {
@@ -23,7 +23,7 @@ const Home = () => {
     return (
         <main className="content">
             {decks ? (
-                <div className="decks__container">
+                <div className={`decks__container ${decks.length > 4 && 'scroller'}`}>
                     {decks.map((deck) => (
                         <section className="select" key={deck + Math.random()}>
                             <h2 className="select__name">{deck}</h2>
@@ -40,4 +40,4 @@ const Home = () => {
     );
 };
 
-export default Home;
+export default Decks;

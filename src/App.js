@@ -1,10 +1,11 @@
 import Practice from './components/Practice/Practice';
 import { BrowserRouter as Router, Switch, Route, HashRouter } from 'react-router-dom';
-import Home from './components/Home/Home';
 import Navbar from './components/Navbar/Navbar';
+import Decks from './components/Decks/Decks';
 import CreateDeck from './components/CreateDeck/CreateDeck';
 import AddCard from './components/AddCard/AddCard';
 import NotFound from './components/NotFound/NotFound';
+import DeleteCard from './components/DeleteCard/DeleteCard';
 
 function App() {
     return (
@@ -12,10 +13,10 @@ function App() {
             <div className="App">
                 <Switch>
                     <Route exact path="/">
-                        <Home />
+                        <Decks />
                     </Route>
                     <Route exact path="/flashcards">
-                        <Home />
+                        <Decks />
                     </Route>
                     <Route path="/practice/:deckName">
                         <Practice />
@@ -25,6 +26,9 @@ function App() {
                     </Route>
                     <Route path="/add">
                         <AddCard />
+                    </Route>
+                    <Route path="/delete">
+                        <DeleteCard />
                     </Route>
                     <Route exact path="*">
                         <NotFound />

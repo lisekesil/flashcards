@@ -20,10 +20,9 @@ const CreateDeck = () => {
             };
 
             deckRef.push(card);
-        }
-
-        clearForm();
-        history.push('/');
+            clearForm();
+            history.push('/');
+        } else alert('Complete the form!');
     };
 
     const clearForm = () => {

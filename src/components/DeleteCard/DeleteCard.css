@@ -1,0 +1,32 @@
+.cards-section {
+    width: 100%;
+    max-height: 275px;
+    margin-top: 20px;
+}
+
+.card-wrapper {
+    font-size: 14px;
+    width: 90%;
+    margin: auto;
+    padding: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #f5be41;
+}
+
+.card-answer {
+    color: #f5be41;
+    font-weight: 700;
+}
+
+.card-delete-btn {
+    background-color: #cf3721;
+    color: #fff;
+    border: none;
+    padding: 5px 5px;
+    border-radius: 10px;
+    font-family: inherit;
+    font-size: 11px;
+    cursor: pointer;
+}
